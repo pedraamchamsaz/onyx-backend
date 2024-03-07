@@ -10,6 +10,7 @@ const eventSchema = mongoose.Schema({
   hostBio : String,
   hostProfilePic : String,
   hostProfileLink : String,
+  tags : Array,
 
   // assigns each event to the specific user
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
