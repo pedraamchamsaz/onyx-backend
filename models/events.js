@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const eventSchema = mongoose.Schema({
+const event = new mongoose.Schema({
   eventName: String,
   eventImg: String,
   hostName: String,
-  ratings: [Number],
+  ratings: Number,
   price: Number,
   hostBio: String,
   hostProfilePic: String,
@@ -62,4 +62,5 @@ const eventSchema = mongoose.Schema({
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
 });
 
-module.exports.Events = mongoose.model("Events", eventSchema);
+module.exports.Event = mongoose.model("Event", event);
+

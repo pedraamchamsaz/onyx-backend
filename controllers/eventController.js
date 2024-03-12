@@ -1,8 +1,8 @@
-const Event = require("../models/events");
+const { Event } = require("../models/events");
 
 
 
-exports.getAllEvents = async function (res) {
+exports.getAllEvents = async function (req, res) {
     try {
       // Find all events
       const allEvents = await Event.find();
@@ -12,9 +12,7 @@ exports.getAllEvents = async function (res) {
       console.error("Error fetching all events:", error);
       res.status(500).send({ message: "Error fetching all events." });
     }
-  };
-
-
+};
 
 
 
