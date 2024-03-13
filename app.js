@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require('express')
 const app = express()
 const port = 3000
 const mongoose = require("mongoose");
 const cors = require("cors");
+const eventRouter = require("./routes/eventRoutes.js");
 
 mongoose
   .connect(process.env.CONNECTION_STRING)
@@ -17,8 +19,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-
-
+app.use("/event", eventRouter);
 
 
 
@@ -32,3 +33,5 @@ app.listen(port, () => {
 
 
 module.exports = app;
+
+module.exports = Event;
