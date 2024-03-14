@@ -32,14 +32,4 @@ exports.addParticipant = async function (req, res) {
         res.status(500).json({ error: "Internal server error" });
     }
  
-    // try {
-
-    // await Event.updateOne(
-    //     { _id: id },
-    //     { $push: {dates: req.body} },
-    //     res.send('Success')
-    // )
-    // } catch (e) {
-    //     console.log(e)
-    // }
 }
