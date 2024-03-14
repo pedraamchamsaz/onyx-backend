@@ -38,3 +38,4 @@ const event = new mongoose.Schema({
 });
 
 module.exports.Event = mongoose.model("Event", event);
+module.exports.Booked = mongoose.model("Booked", bookedEventSchema);
