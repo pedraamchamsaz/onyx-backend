@@ -10,7 +10,7 @@ router.post ("/postevent", createEvent);
 // BOOKING
 
 // router.post('/events/:id/booking', addParticipant)
-router.post('/events/:id/booking', addParticipant)
+router.post('/events/:eventid/:dateindex/booking', addParticipant)
 
 
 module.exports = router; 
