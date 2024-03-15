@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const bookedEventSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
+  // _id: mongoose.Schema.Types.ObjectId,
   firstname: String,
   secondname: String,
   email: String,
@@ -17,7 +17,7 @@ const dateEventSchema = new mongoose.Schema({
   starttime: [String],
   endtime: [String],
   spaces: [Number],
-  // booked: [bookedEventSchema],
+  booked: [bookedEventSchema],
 });
 
 
