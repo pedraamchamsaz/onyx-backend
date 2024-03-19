@@ -30,6 +30,7 @@ exports.addParticipant = async function (req, res) {
     catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal server error" });
+        console.log(eventId, dateId);
     }
  
 }

@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
 const bookedEventSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  firstname: String,
-  secondname: String,
+  firstName: String,
+  lastName: String,
   email: String,
   phone: Number,
   address: String,
@@ -31,6 +30,7 @@ const dateEventSchema = new mongoose.Schema({
 
 
 const event = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   eventName: String,
   eventImg: String,
   hostName: String,
