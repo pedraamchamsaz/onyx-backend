@@ -25,7 +25,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.use("/event", eventRouter);
+app.use("/events", eventRouter);
 app.use("/auth", authorisationRouter)
 
 
