@@ -24,8 +24,10 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+
 app.use("/event", eventRouter);
 app.use("/auth", authorisationRouter)
+
 
 
 
