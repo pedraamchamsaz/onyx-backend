@@ -14,6 +14,18 @@ exports.getAllEvents = async function (req, res) {
     }
 };
 
+exports.getSingleEvent = async function (req, res) {
+  try {
+    const eventId = req.params.eventid
+    const singleEvent = await Event.findById(eventId)
+    res.send(singleEvent)
+
+  } catch (error) {
+      console.error("Error fetching event:", error);
+      res.status(500).send({ message: "Error fetching event." });
+  }
+}
+
 
 
 exports.createEvent = async function (req, res) {

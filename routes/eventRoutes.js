@@ -1,12 +1,13 @@
 const express = require ("express")
 const router = express.Router()
-const {getAllEvents, createEvent} = require ("../controllers/eventController");
+const {getAllEvents, createEvent, getSingleEvent} = require ("../controllers/eventController");
 const { addParticipant } = require("../controllers/bookingController");
 
 
-router.get ("/events", getAllEvents); // delete 'events' and change to '/'?
-router.post ("/postevent", createEvent);
-router.post('/events/:eventid/:dateindex/booking', addParticipant) // also delete 'events' here
+router.get("/", getAllEvents); // /events
+router.get("/:eventid", getSingleEvent) // /events/1234567
+router.post("/postevent", createEvent); // /events/postevent
+router.post('/:eventid/:dateindex', addParticipant) // /events/1234567/0
 
 
 module.exports = router; 
