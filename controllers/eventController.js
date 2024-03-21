@@ -31,20 +31,7 @@ exports.getSingleEvent = async function (req, res) {
 exports.createEvent = async function (req, res) {
    try { 
     const newEvent = req.body;
-  
-    // // Retrieve the user's token from the authorization header
-    // const authHeader = req.headers["authorization"];
-  
-    
-    //   // Find the user based on the token
-    //   const user = await User.findOne({ token: authHeader });
-  
-    //   // Check if the user exists
-    //   if (!user) {
-    //     return res.sendStatus(403); // Forbidden if user not found
-    //   }
-  
-     
+       
       // Create a new event document and associate it with the user
       const event = new Event({
         ...newEvent,
