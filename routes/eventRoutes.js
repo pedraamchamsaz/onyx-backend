@@ -12,12 +12,4 @@ router.post('/:eventid/:dateindex', addParticipant) // /events/1234567/0
 router.post("/signup", createUser)
 
 
-<<<<<<< HEAD
-router.get ("/", getAllEvents); 
-router.post ("/postevent", createEvent);
-router.post('/events/:eventid/:dateindex/booking', addParticipant)
-=======
->>>>>>> b92b7ca78484ea64b51f5d6cddf0f0fa1bbe5f06
-
-
 module.exports = router; 
