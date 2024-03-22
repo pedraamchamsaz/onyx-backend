@@ -8,6 +8,7 @@ const userSchema = mongoose.Schema({
   bio : String,
   profilePic : String,
   token : String,
+  rating: Number,
 })
 
 module.exports.Users = mongoose.model('Users', userSchema)

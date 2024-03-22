@@ -7,7 +7,7 @@ const { createUser } = require("../controllers/authController");
 const { authUser } = require("../middleware/middleware");
 
 router.get("/", getAllEvents); // /events
-router.get("/userEvents", getUserEvents);
+router.get("/userEvents", getUserEvents, authUser);
 router.get("/:eventid", getSingleEvent) // /events/1234567
 router.post("/postevent", createEvent, authUser); // /events/postevent
 router.post('/:eventid/:dateindex', addParticipant) // /events/1234567/0

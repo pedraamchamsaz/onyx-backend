@@ -40,8 +40,7 @@ exports.createEvent = async function (req, res) {
   
     // Retrieve the user's token from the authorization header
     const authHeader = req.headers["authorization"];
-    console.log("auth stuff" ,authHeader)
-    console.log("req head", req.headers)
+   
     
       // Find the user based on the token
       const user = await Users.findOne({ token: authHeader });
@@ -76,8 +75,8 @@ exports.createEvent = async function (req, res) {
     exports.getUserEvents = async function (req, res) { 
     try {
       // Retrieve the user's token from the authorization header
-      const authHeader = req.headers["Authorization"];
-  console.log(authHeader)
+      const authHeader = req.headers["authorization"];
+     
       // Find the user based on the token
       const user = await Users.findOne({ token: authHeader });
       console.log(user)
