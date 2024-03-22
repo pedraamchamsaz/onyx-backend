@@ -12,6 +12,4 @@ router.post('/:eventid/:dateindex', addParticipant) // /events/1234567/0
 router.post("/signup", createUser)
 
 
-
-
 module.exports = router; 
