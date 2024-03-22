@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
 const bookedEventSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  firstname: String,
-  secondname: String,
+
+  firstName: String,
+  lastName: String,
+
   email: String,
   phone: Number,
   address: String,
@@ -11,17 +12,35 @@ const bookedEventSchema = new mongoose.Schema({
   postcode: String,
 });
 
+// const dateEventSchema = new mongoose.Schema({
+//   // _id: mongoose.Schema.Types.ObjectId,
+//   date: [Date],
+//   starttime: [String],
+//   endtime: [String],
+//   spaces: [Number],
+//   // booked: [bookedEventSchema],
+// });
+
 const dateEventSchema = new mongoose.Schema({
+
   // _id: mongoose.Schema.Types.ObjectId,
-  date: [Date],
-  starttime: [String],
-  endtime: [String],
-  spaces: [Number],
-  // booked: [bookedEventSchema],
+//   date: [Date],
+//   starttime: [String],
+//   endtime: [String],
+//   spaces: [Number],
+
+  _id: mongoose.Schema.Types.ObjectId,
+  date: Date,
+  starttime: String,
+  endtime: String,
+  spaces: Number,
+
+  booked: [bookedEventSchema],
 });
 
 
 const event = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   eventName: String,
   eventImg: String,
   hostName: String,
