@@ -68,9 +68,6 @@ exports.createEvent = async function (req, res) {
   };
 
 
-
-
-
  
     exports.getUserEvents = async function (req, res) { 
     try {
@@ -96,3 +93,82 @@ exports.createEvent = async function (req, res) {
     }
   };
  
+
+
+  // Update event
+  exports.updateUserEvents = async function (req, res) {
+// app.put("/:id", async (req, res) => {
+  try {
+    // Retrieve the user's token from the authorization header
+    const authHeader = req.headers["authorization"];
+
+    // Find the user based on the token
+    const user = await Users.findOne({ token: authHeader });
+
+    // Check if the user exists
+    if (!user) {
+      return res.sendStatus(403); // Forbidden if user not found
+    }
+
+    // Find the event by ID
+    const event = await Event.findById(req.params.id);
+
+    // Check if the event exists
+    if (!event) {
+      return res.status(404).send({ message: "Event not found." });
+    }
+
+    // Check if the user is the creator of the event
+    if (event.createdBy.toString() !== user._id.toString()) {
+      return res
+        .status(403)
+        .send({ message: "Unauthorized to update this event." });
+    }
+
+    // Update the event
+    await Event.findByIdAndUpdate(req.params.id, req.body);
+    res.send({ message: "Event updated." });
+  } catch (error) {
+    console.error("Error updating event:", error);
+    res.status(500).send({ message: "Error updating event." });
+  }
+};
+
+// Delete event
+exports.deleteUserEvents = async function (req, res) {
+// app.delete("/:id", async (req, res) => {
+  try {
+    // Retrieve the user's token from the authorization header
+    const authHeader = req.headers["authorization"];
+
+    // Find the user based on the token
+    const user = await Users.findOne({ token: authHeader });
+
+    // Check if the user exists
+    if (!user) {
+      return res.sendStatus(403); // Forbidden if user not found
+    }
+
+    // Find the event by ID
+    const event = await Event.findById(req.params.id);
+
+    // Check if the event exists
+    if (!event) {
+      return res.status(404).send({ message: "Event not found." });
+    }
+
+    // Check if the user is the creator of the event
+    if (event.createdBy.toString() !== user._id.toString()) {
+      return res
+        .status(403)
+        .send({ message: "Unauthorized to delete this event." });
+    }
+
+    // Delete the event
+    await Event.findByIdAndDelete(req.params.id);
+    res.send({ message: "Event deleted." });
+  } catch (error) {
+    console.error("Error deleting event:", error);
+    res.status(500).send({ message: "Error deleting event." });
+  }
+};
