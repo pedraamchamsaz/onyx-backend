@@ -4,9 +4,9 @@ const {getAllEvents, createEvent} = require ("../controllers/eventController");
 const { addParticipant } = require("../controllers/bookingController");
 
 
-router.get ("/events", getAllEvents); // delete 'events' and change to '/'?
+router.get ("/", getAllEvents); 
 router.post ("/postevent", createEvent);
-router.post('/events/:eventid/:dateindex/booking', addParticipant) // also delete 'events' here
+router.post('/events/:eventid/:dateindex/booking', addParticipant)
 
 
 module.exports = router; 

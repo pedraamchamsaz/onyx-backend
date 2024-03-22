@@ -3,15 +3,21 @@ const { Event } = require("../models/events");
 
 
 exports.getAllEvents = async function (req, res) {
-    try {
-      // Find all events
-      const allEvents = await Event.find();
-  
-      res.send(allEvents);
-    } catch (error) {
-      console.error("Error fetching all events:", error);
-      res.status(500).send({ message: "Error fetching all events." });
-    }
+  try {
+      const { tag } = req.query;
+      let query = {}; 
+
+      if (tag) {
+          query = { tags: tag };
+      }
+
+      const events = await Event.find(query);
+
+      res.send(events);
+  } catch (error) {
+      console.error("Error fetching events:", error);
+      res.status(500).send({ message: "Error fetching events." });
+  }
 };
 
 
