@@ -4,7 +4,7 @@ const bookedEventSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  phone: Number,
+  phone: String,
   address: String,
   city: String,
   postcode: String,
