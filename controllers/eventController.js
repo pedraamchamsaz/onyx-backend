@@ -172,3 +172,10 @@ exports.deleteUserEvents = async function (req, res) {
     res.status(500).send({ message: "Error deleting event." });
   }
 };
+
+
+
+
+
+
+

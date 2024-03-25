@@ -51,7 +51,7 @@ exports.createUser = async function (req, res) {
       // Generate token
       user.token = uuidv4();
       await user.save();
-      res.send({ token: user.token, username: user.username, password: user.password, rating: user.rating });
+      res.send({ token: user.token, username: user.username, password: user.password, rating: user.rating, profilePic: user.profilePic, bio: user.bio });
     } catch (error) {
       console.error("Error authenticating user:", error);
       res.status(500).send({ message: "Error authenticating user." });
