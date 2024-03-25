@@ -43,7 +43,7 @@ exports.getSingleEvent = async function (req, res) {
 exports.createEvent = async function (req, res) {
    try { 
     const newEvent = req.body;
-  
+
     // Retrieve the user's token from the authorization header
     const authHeader = req.headers["authorization"];
    
