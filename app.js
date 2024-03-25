@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const eventRouter = require("./routes/eventRoutes.js");
 const authorisationRouter = require("./routes/authorisationRoutes.js")
+const userRouter = require("./routes/userRoutes.js")
 
 const bcrypt = require("bcryptjs");
 const { Users } = require("./models/users")
@@ -24,11 +25,9 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-
 app.use("/events", eventRouter);
 app.use("/auth", authorisationRouter)
-
-
+app.use("/user", userRouter)
 
 
 
