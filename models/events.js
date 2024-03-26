@@ -28,7 +28,7 @@ const bookedEventSchema = new mongoose.Schema({
   // spaces: Number,
 
 //   booked: [bookedEventSchema],
-});
+// });
 
 
 const event = new mongoose.Schema({
