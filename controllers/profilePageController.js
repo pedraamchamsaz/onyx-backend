@@ -90,8 +90,8 @@ exports.addUserInfo = async function (req, res) {
     }
 
     
-    const { username, bio, profilePic } = createdByUser;
-    res.send({ username, bio, profilePic });
+    const { username, bio, profilePic, rating } = createdByUser;
+    res.send({ username, bio, profilePic, rating });
   } catch (error) {
     console.error("Error fetching event creator details:", error);
     res.status(500).send({ message: "Error fetching event creator details." });
